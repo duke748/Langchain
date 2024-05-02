@@ -28,9 +28,9 @@ prompt = ChatPromptTemplate(
 # The chain will take in the user input and the messages from the memory and return the response from the chatbot.
 #   The response will be stored in the memory.
 chain = LLMChain(
-    llm=chat,
-    prompt=prompt,
-    memory=mem
+    llm=chat, # Use the chatbot model
+    prompt=prompt, # Use the prompt template above
+    memory=mem # Use the ConversationBufferMemory to store the messages
 )
 
 # Set up a simple shell chatbot that can take in user input and respond back to the user.
