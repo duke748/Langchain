@@ -54,11 +54,9 @@ result = chain({
     "task": args.task,
 })  
 
-# Print Dictionary
-print(result)
 
 # Print Code
-print(result["code"])
+print("CODE:\n" + result["code"])
 
 # Print Unit Tests
-print(result["unit_tests"])
+print("Unit Tests:\n" + result["unit_tests"])
