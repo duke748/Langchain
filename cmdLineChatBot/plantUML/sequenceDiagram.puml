@@ -1,0 +1,25 @@
+@startuml
+start
+
+:Load environment variables;
+
+:Create ChatOpenAI instance;
+note right : the instance is used to generate the response\nfrom the user input
+
+:Create ConversationBufferMemory instance;
+note right : the instance is used to store the conversation\nbetween the user and the bot
+:Define ChatPromptTemplate;
+note right : the template is used to generate the prompt\nfor the ChatOpenAI instance
+
+:Create LLMChain instance;
+note right : the instance is used to generate the response\nfrom the ChatOpenAI instance
+
+while (User provides input) is (yes)
+
+  :Process input with LLMChain;
+  note right : the input is processed by the LLMChain\nand the output is stored in the\nConversationBufferMemory instance
+  :Print bot response;
+endwhile (no)
+
+stop
+@enduml

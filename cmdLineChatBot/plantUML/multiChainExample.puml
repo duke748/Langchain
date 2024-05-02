@@ -1,0 +1,28 @@
+@startuml
+skinparam handwritten true
+skinparam shadowing true
+
+
+skinparam map {
+    BackgroundColor PaleGreen
+    BorderColor DarkGreen
+}
+left to right direction 
+
+package  "ChatPromptTemplate"  {
+map Inputs  {
+ **Subject** => <color:red>coding
+ **query** => <color:blue>writing Unit Tests
+}
+ package "SystemMessagePromptTemplate" {
+    ["You are a chatbot that specialises in <color:red>coding"]
+    }
+    package "HumanMessagePromptTemplate"  {
+    ["Explain the benefits of <color:blue>writing Unit Tests"]
+  }
+
+}
+
+
+
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+class ChatOpenAI {
+  -model_name: string
+}
+
+class ConversationBufferMemory {
+  -memory_key: string
+  -return_messages: boolean
+}
+
+class ChatPromptTemplate {
+  -input_variables: list
+  -messages: list
+}
+
+class MessagesPlaceholder {
+  -messages: string
+}
+
+class HumanMessagePromptTemplate {
+  -content: string
+}
+
+class LLMChain {
+  -llm: ChatOpenAI
+  -prompt: ChatPromptTemplate
+  -memory: ConversationBufferMemory
+}
+
+ChatOpenAI "1" -- "1" LLMChain: used by
+ConversationBufferMemory "1" -- "1" LLMChain: used by
+ChatPromptTemplate "1" -- "1" LLMChain: used by
+ChatPromptTemplate "1" -- "*" MessagesPlaceholder: contains
+ChatPromptTemplate "1" -- "*" HumanMessagePromptTemplate: contains
+@enduml

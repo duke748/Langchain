@@ -1,0 +1,17 @@
+@startuml
+class ChatPromptTemplate {
+  -input_variables: list
+  -messages: list
+}
+
+class MessagesPlaceholder {
+  -messages: string
+}
+
+class HumanMessagePromptTemplate {
+  -content: string
+}
+
+ChatPromptTemplate "1" -- "*" MessagesPlaceholder: contains
+ChatPromptTemplate "1" -- "*" HumanMessagePromptTemplate: contains
+@enduml
