@@ -1,7 +1,7 @@
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import HumanMessagePromptTemplate, ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import LLMChain
-from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationBufferMemory, FileChatMessageHistory
 from dotenv import load_dotenv
 
 # Load the environment variables from .env file
@@ -13,7 +13,12 @@ chat = ChatOpenAI(
 )
 
 # Create ConversationBufferMemory to store the messages. Return the messages as well.
-mem = ConversationBufferMemory(memory_key="messages",return_messages=True)
+# Use FileChatMessageHistory to store the messages in a file.
+mem = ConversationBufferMemory(
+    memory_key="messages",
+    return_messages=True,
+    chat_memory=FileChatMessageHistory("messageHistory.json")
+)
 
 # Define the prompt template
 prompt = ChatPromptTemplate(
