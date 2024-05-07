@@ -1,0 +1,27 @@
+@startuml
+start
+
+:Load environment variables;
+
+:Parse command line arguments;
+
+:Create OpenAI instance;
+
+:Define firstCodePrompt;
+
+:Define createUnitTestsPrompt;
+
+:Create code_chain;
+
+:Create createUnitTestsPromptChain;
+
+:Create SequentialChain;
+
+:Run the code generation chain;
+
+:Print Code;
+
+:Print Unit Tests;
+
+stop
+@enduml

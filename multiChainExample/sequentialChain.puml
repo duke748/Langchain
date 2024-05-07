@@ -1,0 +1,21 @@
+@startuml
+class PromptTemplate {
+  -template: string
+  -input_variables: list
+}
+
+class LLMChain {
+  -llm: ChatOpenAI
+  -prompt: PromptTemplate
+  -output_key: string
+}
+
+class SequentialChain {
+  -chains: list
+  -input_variables: list
+  -output_variables: list
+}
+
+PromptTemplate "1" -- "1" LLMChain: used by
+LLMChain "1" -- "*" SequentialChain: contained in
+@enduml
