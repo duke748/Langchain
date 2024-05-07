@@ -60,6 +60,14 @@ while True:
     except:
         pass
         print("No messages in memory")
+
+    try:
+        messages = mem.chat_memory.messages
+        previous_summary = ""
+        print("Prediction: " + mem.predict_new_summary(messages, previous_summary))
+    except:
+        pass
+        print("Prediction failed: No messages in memory")
    
     print("BOT: " + result["text"])
 
